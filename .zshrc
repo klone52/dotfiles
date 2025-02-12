@@ -36,6 +36,10 @@ zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
 
+# append completions to fpath
+fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
+# initialise completions with ZSH's compinit
+
 # Load completions
 autoload -Uz compinit && compinit
 
@@ -60,6 +64,7 @@ setopt hist_find_no_dups
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
+# zstyle ':completion:*' menu select
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
@@ -248,3 +253,13 @@ export NVM_DIR="$HOME/.nvm"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# ASDF
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+export RANGER_FURY_LOCATION=/Users/nhernandezpe/.fury #Added by Fury CLI
+export RANGER_FURY_VENV_LOCATION=/Users/nhernandezpe/.fury/fury_venv #Added by Fury CLI
+
+# Added by Fury CLI installation process
+declare FURY_BIN_LOCATION="/Users/nhernandezpe/.fury/fury_venv/bin" # Added by Fury CLI installation process
+export PATH="$PATH:$FURY_BIN_LOCATION" # Added by Fury CLI installation process
+# Added by Fury CLI installation process
