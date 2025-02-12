@@ -78,6 +78,7 @@ alias lzn='lazynpm'
 function fcv {
   RED='\033[0;31m'
   GREEN='\033[0;32m'
+  YELLOW='\033[0;33m'
   NC='\033[0m' # No Color 
 
   # Check for option flags
@@ -138,7 +139,7 @@ function fcv {
   behind=$(git rev-list --left-right --count origin/develop...$branch_name | awk '{print $1}')
   if [[ "$behind" -gt "0" ]]; then
     echo "Branch behind develop by ${behind} commits 👀"
-    echo "Update your branch !!"
+    echo "${YELLOW}Update your branch !!${NC}"
     return
   fi
   echo -e "${GREEN}Branch up to date${NC}"

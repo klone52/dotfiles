@@ -20,15 +20,18 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- save file
-vim.keymap.set('n', '<D-s>', '<cmd> w <CR>', opts)
-vim.keymap.set('n', '<D-S>', '<cmd> wa <CR>', opts)
-
--- save file without auto-formatting
-vim.keymap.set('n', '<leader>sn', '<cmd>noautocmd w <CR>', opts)
+vim.keymap.set('n', '<leader>ww', '<cmd> w <CR>', { desc = 'Save file', noremap = true, silent = true })
+vim.keymap.set('n', '<leader>wa', '<cmd> wa <CR>', { desc = 'Save all files', noremap = true, silent = true })
+vim.keymap.set('n', '<leader>wn', '<cmd> noautocmd w <CR>', { desc = 'Save file without auto-formatting', noremap = true, silent = true })
 
 -- quit file
-vim.keymap.set('n', '<C-q>', '<cmd> qa <CR>', opts)
+vim.keymap.set('n', '<leader>qq', '<cmd> q <CR>', { desc = 'Quit file', noremap = true, silent = true })
+vim.keymap.set('n', '<leader>qa', '<cmd> qa <CR>', { desc = 'Quit All files', noremap = true, silent = true })
+vim.keymap.set('n', '<leader>Q', '<cmd> qa! <CR>', { desc = 'Quit All files force', noremap = true, silent = true })
 
+-- save and quit
+vim.keymap.set('n', '<leader>wq', '<cmd> wq <CR>', { desc = 'Save and Quit file', noremap = true, silent = true })
+vim.keymap.set('n', '<leader>wqa', '<cmd> wqa <CR>', { desc = 'Save and Quit al files', noremap = true, silent = true })
 -- delete single character without copying into register
 vim.keymap.set('n', 'x', '"_x', opts)
 
@@ -44,10 +47,10 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz', opts)
 vim.keymap.set('n', '<Tab>', ':bnext<CR>', opts)
 vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', opts)
 
--- Increment/decrement numbers ( keymaps not working )
+-- Increment/decrement numbers
 --  test: 10
--- vim.keymap.set('n', '<leader>+', '<C-a>', opts) -- increment
--- vim.keymap.set('n', '<leader>-', '<C-x>', opts) -- decrement
+vim.keymap.set('n', '<leader>+', '<C-a>', opts) -- increment
+vim.keymap.set('n', '<leader>-', '<C-x>', opts) -- decrement
 
 -- Window management
 vim.keymap.set('n', '<leader>v', '<C-w>v', opts) -- split window vertically
