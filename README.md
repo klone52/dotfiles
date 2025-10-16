@@ -7,6 +7,9 @@
 - Tmux
 - Zsh
 - p10k
+- Yazi
+- Zoxide
+- FuzzyFinder
 
 ## Requirements 
 - Git
